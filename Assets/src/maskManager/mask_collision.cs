@@ -8,10 +8,11 @@ public class mask_collision : MonoBehaviour
     public SpriteFlipbook flipbook;
 
     public gameManager gameManager;
+    [SerializeField] private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,10 +22,14 @@ public class mask_collision : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") )
         {
-            gameManager.completed[0]=true;
-            flipbook.Play();
+            //gameManager.completed[0]=true;
+            //flipbook.Play();
+            if (animator != null)
+            {
+                animator.SetTrigger("activa");
+            }
             Destroy(gameObject);
 
         }
