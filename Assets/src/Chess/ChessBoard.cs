@@ -61,7 +61,7 @@ public class ChessBoard : MonoBehaviour
         board[3, 7] = -1;
     }
 
-    void InitializeBoardUI()
+    public void InitializeBoardUI()
     {
         float boardSize = squareSize * 8f;
         RectTransform rt = GetComponent<RectTransform>();
@@ -215,5 +215,27 @@ public class ChessBoard : MonoBehaviour
     {
         if (squares[row, col] == null) return;
         squares[row, col].GetComponent<Image>().color = highlightColor;
+    }
+
+    public void InicializarTablero()
+    {
+        // Limpia los objetos visuales de piezas existentes
+        for (int row = 0; row < 8; row++)
+        {
+            for (int col = 0; col < 8; col++)
+            {
+                if (pieceObjs[row, col] != null)
+                {
+                    Destroy(pieceObjs[row, col]);
+                    pieceObjs[row, col] = null;
+                }
+            }
+        }
+
+        // Resetea el tablero a la posición inicial del puzzle
+        SetupPuzzlePosition();
+
+        // Redibuja
+        RenderBoard();
     }
 }

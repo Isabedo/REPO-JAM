@@ -46,6 +46,7 @@ public class ChessTurnManager : MonoBehaviour
     void Start()
     {
         ShowDialogue("Chess afternoons... my wife always won. So this is how our last game ended, huh?");
+
     }
 
     public void ActiveChess()
@@ -53,6 +54,20 @@ public class ChessTurnManager : MonoBehaviour
         panel.SetActive(true);
     }
 
+    void ResetearJuego()
+    {
+        gameOver = false;
+        isPlayerTurn = true;
+        hasPieceSelected = false;
+        selectedRow = -1;
+        selectedCol = -1;
+        blackResponseCount = 0;
+        validMoves.Clear();
+
+        chessBoard.InicializarTablero();
+
+        ShowDialogue("Chess afternoons... my wife always won. So this is how our last game ended, huh?");
+    }
     public void OnSquareClicked(int row, int col)
     {
         if (!isPlayerTurn || gameOver) return;
@@ -288,19 +303,24 @@ public class ChessTurnManager : MonoBehaviour
         ShowDialogue(text ?? "For the first time... I won... even if it's this way.");
         GameManager.Instance.sala3Completada = true;
         Debug.Log("Puzzle sala 3resuelto");
+        StartCoroutine(quitarPanel(false));
     }
 
     void WifeWins()
     {
         gameOver = true;
-        ShowDialogue("... Even so, she beat me. I can't believe it.");
-        StartCoroutine(VolverEscenaRoutine());
+        ShowDialogue("... Even so, she beat me. I can't believe it. I wish I could go back and play again... just one more time.");
+        StartCoroutine(quitarPanel(true));
     }
 
-    IEnumerator VolverEscenaRoutine()
+    IEnumerator quitarPanel(bool resetGame)
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(escenaOriginal);
+        panel.SetActive(false);
+        if (resetGame)
+        {
+            ResetearJuego();
+        }
     }
 
     void ShowDialogue(string text)

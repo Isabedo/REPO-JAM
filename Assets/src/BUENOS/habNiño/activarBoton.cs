@@ -20,6 +20,7 @@ public class activarBoton : MonoBehaviour
         bool jugadorCerca = distancia <= distanciaInteraccion;
 
         botonInteraccion.SetActive(objetoActivo && jugadorCerca);
+ 
     }
 
     void OnDisable()
