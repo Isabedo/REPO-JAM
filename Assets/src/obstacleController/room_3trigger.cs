@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mask_collision : MonoBehaviour
+public class room_3trigger : MonoBehaviour
 {
-    [Header("Sprite Flip Book file")]
     public SpriteFlipbook flipbook;
-
-    public gameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +16,12 @@ public class mask_collision : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
         {
-            gameManager.completed[0]=true;
             flipbook.Play();
             Destroy(gameObject);
-
         }
     }
 }

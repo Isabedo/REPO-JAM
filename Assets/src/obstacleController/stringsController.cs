@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mask_collision : MonoBehaviour
+public class stringsController : MonoBehaviour
 {
-    [Header("Sprite Flip Book file")]
-    public SpriteFlipbook flipbook;
+    public GameObject guitarra;
 
-    public gameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +21,8 @@ public class mask_collision : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            gameManager.completed[0]=true;
-            flipbook.Play();
+            guitarra.GetComponent<room_2guitarrController>().guitarStrings--;
             Destroy(gameObject);
-
         }
     }
 }
