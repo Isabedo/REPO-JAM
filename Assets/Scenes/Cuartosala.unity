@@ -1474,6 +1474,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2042866169}
+  - {fileID: 2121286840}
   - {fileID: 378275630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13874,6 +13875,55 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3222492, y: 1.1993899, z: 4.369827}
   m_Center: {x: 0.21324626, y: 0.5778118, z: -2.3291225}
+--- !u!1 &2121286839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121286840}
+  - component: {fileID: 2121286841}
+  m_Layer: 0
+  m_Name: TManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2121286840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121286839}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1017.8424, y: -539.9419, z: 3433.0312}
+  m_LocalScale: {x: 1.85866, y: 1.85866, z: 1.85866}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194069682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2121286841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121286839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58e4322602472e4d8bbb35dfb13e938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChessTurnManager
+  chessBoard: {fileID: 0}
+  dialogueText: {fileID: 0}
+  activeChess: 1
+  panel: {fileID: 0}
+  escenaOriginal: Ajedrez
 --- !u!1 &2126063799
 GameObject:
   m_ObjectHideFlags: 0
