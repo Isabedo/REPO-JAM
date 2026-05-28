@@ -10,11 +10,13 @@ public class player_movement : MonoBehaviour
     private Vector3 _input;
     private Joystick _joystickMovement;
     [SerializeField] private float _rotationSpeed = 360f;
+    private Animator _animator;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _joystickMovement = FindObjectOfType<Joystick>();
+        _animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -47,6 +49,13 @@ public class player_movement : MonoBehaviour
     {
         if (_rb == null) return;
         _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.fixedDeltaTime);
+        AnimarCaminar();
+    }
+
+    void AnimarCaminar() // Anima al jugador caminando, si no hay input no hace nada
+    {
+        if (_animator == null) return;
+        _animator.SetFloat("Speed", _input.magnitude);
     }
 
 
